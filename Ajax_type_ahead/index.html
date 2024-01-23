@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ajax Type Ahead</title>
+</head>
+<body>
+
+  <style>
+    html{
+      box-sizing: border-box;
+      background-color: rgb(179, 80, 14);
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size:30px;
+      font-weight: 300;
+    }
+    *, *.before, *.after{
+      box-sizing: inherit;
+    }
+    input{
+      width:100%;
+      padding:20px;
+    }
+    .search-form{
+      max-width:400px;
+      margin: 50px auto;
+    }
+    input.search{
+      margin:0;
+      text-align: center;
+      outline: 0;
+      border: 10px solid #e0cdcd;
+      width:100%;
+      left: -10%;
+      position: relative;
+      top:10px;
+      z-index: 2;
+      border-radius: 5px;
+      font-size: 40px;   
+    }
+    .suggestions{
+      margin: 7px;
+      padding: 0;
+      position: relative;
+      right:10%;
+      font-size: 30px;
+    }
+    .suggestions li{
+      list-style: none;
+      border-bottom: 1px solid #9d3f3f;
+      box-shadow: 0 0 10px rgba(37, 32, 32, 0.14);
+      margin: 0;
+      padding: 20px;
+      display: flex;
+      justify-content: space-between;
+      text-transform: capitalize;
+    }
+    .suggestions li:nth-child(even){
+      transform: perspective(100px) rotateX(3deg) translateY(2px)scale(1.001);
+      background: linear-gradient(to bottom, #ffffff 0%, #EFEFEF 100%);
+    }
+    .suggestions li:nth-child(odd){
+      transform: perspective(100px) rotateX(-3deg) translateY(4px)scale(1.001);
+      background: linear-gradient(to bottom, #ffffff 0%, #EFEFEF 100%);
+    }
+    span.population{
+      font-size: 15px;
+    }   
+  </style>
+
+  <form class="search-form">
+    <input type="text" class="search" placeholder="City OR State">
+    <ul class="suggestions">
+      <li>Filter For a City</li>
+      <li>Fiter For a State</li>
+    </ul>
+  </form> 
+ 
+
+<script>
+  const endpoint = 'https://gist.githubusercontent.com/Miserlou/c5cd8364bf9b2420bb29/raw/2bf258763cdddd704f8ffd3ea9a3e81d25e2c6f6/cities.json';
+
+  //fetch the data
+
+  const cities = [];//empty array to put cities
+  fetch(endpoint)
+    .then(blob=>blob.json()).then(data=>cities.push(...data));//spread in push method
+
+  function findMatches(wordToMatch, cities){
+    return cities.filter(place =>{
+      
+      const regex = new RegExp(wordToMatch, 'gi') //gi => globally insesitive
+
+      return place.city.match(regex) || place.state.match(regex)
+    });
+  } 
+
+  function numberWithCommas(x) {
+    return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
+  }//format a number with commas as thousands separators?
+  
+  //display funciton
+  function displayMatches(){
+    const matchArray = findMatches(this.value, cities);
+    const html = matchArray.map(place=>{
+      //highlighting the words
+      const regex = new RegExp(this.value, 'gi');
+      const cityName = place.city.replace(regex, `<span clsss="h1">${this.value}</span>`);
+      const stateName = place.state.replace(regex, `<span clsss="h1">${this.value}</span>`);
+      return  `
+        <li>
+          <span class="name">${cityName}, ${stateName}</span>
+          <span class="population">${numberWithCommas(place.population)}</span>  
+        </li>
+      `;
+    }).join('');
+    suggestions.innerHTML = html;
+  }
+
+  const searchInput = document.querySelector('.search');
+  const suggestions = document.querySelector('.suggestions');
+
+  searchInput.addEventListener('change', displayMatches);
+  searchInput.addEventListener('keyup', displayMatches);
+</script>
+
+</body>
+</html>

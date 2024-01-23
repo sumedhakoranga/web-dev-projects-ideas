@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Modifying CSS</title>
+</head>
+<body>
+  <h2>Modifying CSS varibale with <span class="h1">JS</span></h2>
+  <div class="controllers">
+    <label for="spacing">Spacing</label>
+    <input type ="range" name="spacing" min="10" max="150" value="10" data-sizing="px">
+
+    <label for="blur">Blur</label>
+    <input type ="range" name="blur" min="0" max="50" value="10" data-sizing="px">
+
+    <label for="base">Base Color</label>
+    <input type ="color" name="base" value="#ff22cc" >
+  </div>
+  <img src="http://unsplash.it/800/500?image=911">
+
+
+<style>
+  :root{
+    --base:rgb(188, 88, 38);
+    --spacing:10px;
+    --blur:10px;
+  }
+
+  img{
+    padding:var(--spacing);
+    background: var(--base);
+    filter: blur(var(--blur));
+  }
+
+  body{
+    text-align: center;
+    background-color: rgb(5, 54, 54);
+  }
+  h2{
+    font-size: 40px;
+  }
+  .h1{
+    color:var(--base);
+  }
+  .controllers{
+    font-size: 30px;
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    margin:50px auto;
+  }
+</style>
+
+<script>
+
+  const inputs = document.querySelectorAll('.controllers input');
+
+  function handleUpdate(){
+    const suffix = this.dataset.sizing || '';
+    document.documentElement.style.setProperty(`--${this.name}`, this.value+suffix);
+  }
+
+  inputs.forEach(input => input.addEventListener('change', handleUpdate));
+  inputs.forEach(input => input.addEventListener('mousemove', handleUpdate));
+
+</script>
+
+</body>
+</html>
