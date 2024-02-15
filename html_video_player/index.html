@@ -1,13 +1,42 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>HTML5 Video Player</title>
+  <link rel="stylesheet" href="styles.css">
 </head>
+
 <body>
-  <div class="player">
-    <video class="player_video viewer" src = "rick_and_marty.mp4"></video>
+  <div class="navbar">
+    <nav>
+      <a href="#home">Home</a>
+      <a href="#about">About</a>
+      <a href="#skill">Skill</a>
+      <a href="#projects">Project</a>
+      <a href="#contact">Contact</a>
+      <span></span>
+    </nav>
   </div>
+  <div class="player">
+    <div class="igName">webdeveloperworld</div>
+    <div class="overlay-text">TATAKE</div>
+    <p class="my-text">Lorem ipsum dolor sit amet consectetur.</p>
+    <video class="player-video viewer" src="aot.mp4"></video>
+    <div class="play-controls">
+      <div class="progress">
+        <div class="progress-filled">
+        </div>
+        <button class="player-button toggle" title="toggle play">▶</button>
+        <input type="range" name="volume" class="player-slider" min="0" max="1" step="0.05" value="1">
+        <input type="range" name="playbackrate" class="player-slider" min="0" max="1" step="0.05" value="1">
+        <button data-skip="-10" class="player-button">⬅10s</button>
+        <button data-skip="10" class="player-button">10s➡</button>
+      </div>
+    </div>
+  </div>
+  <script src="script.js"></script>
 </body>
+
 </html>

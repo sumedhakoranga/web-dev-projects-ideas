@@ -1,0 +1,148 @@
+@import url('https://fonts.googleapis.com/css2?family=Indie+Flower&display=swap');
+
+body,
+html {
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  overflow: hidden;
+}
+
+body {
+  background-color: black;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.player {
+  width: 100vw;
+  height: 100vh;
+  position: relative;
+}
+
+.viewer {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  width: 100vh;
+  height: 100vw;
+  transform: translate(-50%, -50%) rotate(270deg);
+  object-fit: cover;
+}
+
+.overlay-text {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(19, 9, 9);
+  font-size: 10em;
+  z-index: 10;
+  font-family: "Indie Flower", cursive;
+}
+
+.my-text{
+  position: absolute;
+  top: 70%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  color: rgb(121, 114, 114);
+  font-size: 2em;
+  z-index: 10;
+  font-family:Georgia, 'Times New Roman', Times, serif;
+}
+
+.igName{
+  position: absolute;
+  top: 30%;
+  left: 10%;
+  transform: translate(-50%, -50%);
+  color: rgb(255, 255, 255);
+  font-size: 2dvh;
+  z-index: 10;
+  font-family: "Indie Flower", cursive;
+  }
+
+  nav {
+    position: absolute;
+    top:14px;
+    right:0;
+    border-radius: 2px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    animation: slide 1.5s ease-in-out;
+    z-index: 10;
+
+
+  }
+
+  nav a {
+    position: relative;
+    display: inline-block;
+    font-size: 1em;
+    font-weight: 500;
+    color: rgb(100, 99, 99);
+    text-decoration: none;
+    padding: 0 23px;
+    z-index: 1;
+  }
+
+  @keyframes slide {
+    from {
+      width: 0;
+      opacity: 0%;
+    }
+
+    to {
+      width: 100%;
+      opacity: 100%;
+    }
+  }
+
+  nav span {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 95px;
+    height: 100%;
+    animation: slide2 1.5s ease-in;
+    border-radius: 8px;
+    transition: .5s;
+  }
+
+  @keyframes slide2 {
+
+    from {
+      width: 0;
+    }
+
+    to {
+      width: 20%;
+    }
+  }
+
+  nav a:nth-child(1):hover~span {
+    left: 0;
+  }
+
+  nav a:nth-child(2):hover~span {
+    left: 85px;
+    background: linear-gradient(to right, #1a1a1a, #ff0000);
+  }
+
+  nav a:nth-child(3):hover~span {
+    left: 170px;
+    background: linear-gradient(to right, #1a1a1a, #00c3ff);
+  }
+
+  nav a:nth-child(4):hover~span {
+    left: 258px;
+    background: linear-gradient(to right, #1a1a1a, #00ff8c);
+  }
+
+  nav a:nth-child(5):hover~span {
+    left: 360px;
+    background: linear-gradient(to right, #1a1a1a, #a600ff);
+  }
