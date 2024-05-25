@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Dashboard</title>
+
+  <!-- Roboto Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
+
+  <!-- Material Icons -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons+Outlined" rel="stylesheet">
+
+  <!-- cusotm css -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+
+<body>
+  <div class="grid-container">
+    <!-- header -->
+    <header class="header">
+      <div class="menu-icon" onclick="openSidebar()">
+        <span class="material-icons-outlined">menu</span>
+      </div>
+      <div class="header-left">
+        <span class="material-icons-outlined">search</span>
+      </div>
+      <div class="header-right">
+        <span class="material-icons-outlined">notifications</span>
+        <span class="material-icons-outlined">mail</span>
+        <span class="material-icons-outlined">person</span>
+      </div>
+    </header>
+    <!-- end header -->
+    <!-- sidebar -->
+    <aside id="sidebar">
+      <div class="sidebar-title">
+        <div class="sidebar-brand">
+          <span class="material-icons-outlined">inventory</span>My Inventory
+        </div>
+        <span class="material-icons-outlined" onclick="closeSidebar()">close</span>
+      </div>
+      <ul class="sidebar-list">
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">dashboard</span>Dashboard
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">inventory_2</span>Products
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">fact_check</span>Inventory
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">add_shopping_cart</span>Purchase Orders
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">shopping_cart</span>Sales orders
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">poll</span>Reports
+        </li>
+        <li class="sidebar-list-item">
+          <span class="material-icons-outlined">settings</span>Setting
+        </li>
+      </ul>
+    </aside>
+    <!-- end sidebar -->
+    <!-- main -->
+    <main class="main-container">
+      <div class="main-title">
+        <p class="font-weight-bold">DASHBOARD</p>
+      </div>
+
+      <div class="main-cards">
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">PRODUCTS</p>
+            <span class="material-icons-outlined text-blue">inventory_2</span>
+          </div>
+          <span class="text-primary font-weight-bold">249</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">PURCHASE OREDRS</p>
+            <span class="material-icons-outlined text-orange">add_shopping_cart</span>
+          </div>
+          <span class="text-primary font-weight-bold">83</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">SALES OREDERS</p>
+            <span class="material-icons-outlined text-green">shopping_cart</span>
+          </div>
+          <span class="text-primary font-weight-bold">79</span>
+        </div>
+
+        <div class="card">
+          <div class="card-inner">
+            <p class="text-primary">INVENTORY ALERTS</p>
+            <span class="material-icons-outlined text-red">notification_important</span>
+          </div>
+          <span class="text-primary font-weight-bold">56</span>
+        </div>
+
+      </div>
+
+      <div class="charts">
+
+        <div class="charts-card">
+          <p class="chart-title">Top 5 Products</p>
+          <div class="bar-chart"></div>
+        </div>
+
+        <div class="charts-card">
+          <p class="chart-title">Purchase and Sales Orders</p>
+          <div class="area-chart"></div>
+        </div>
+
+      </div>
+    </main>
+    <!-- end-main -->
+  </div>
+
+  <!-- scripts -->
+  <!-- Apex charts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/apexcharts/3.45.2/apexcharts.min.js"></script>
+  <!-- custom js -->
+  <script src="js/app.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Roboto:wght@100&display=swap">
+  <title>Scroll Animation</title>
+  <style>
+    *{
+      box-sizing: border-box;
+    }
+    body{
+      background-color: #153448;
+      font-family: "Roboto", sans-serif;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      margin: 0;
+      overflow-x: hidden;
+    }
+    h1{
+      margin: 36px;
+      font-size: 50px;
+      color: #DFD0B8;
+      font-weight: 600;
+    }
+    .box{
+      background-color: #948979;
+      color: #fff;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 70%;
+      height: 100px;
+      margin: 10px;
+      border-radius: 10px;
+      box-shadow: 0px 3px 12px #3C5B6F;
+      transform: translateX(-400%);
+      transition: transform 0.8s ease;
+    }
+    h1:hover{
+      text-decoration: underline;
+    }
+    a{
+      text-decoration: none;
+      color: #3C5B6F;
+    }
+    .box:after {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      border: 5px solid transparent;
+      transition: border-color 250ms ease-in-out;
+      pointer-events: none;
+    }
+    .box:hover:after {  
+      border-color: rgb(253, 253, 253);
+    }
+    .box:nth-of-type(even){
+      transform: translateX(-400%);
+    }
+    .box.show{
+      transform: translateX(0);
+    }
+    .box h2{
+      font-size: 45px;
+    }
+  </style>
+</head>
+<body>
+  <h1>My Frontend Projects</h1>
+  <div class="box">
+    <a href="admin_dashboard/index.html" target="_blank">
+      <h2>Admin Dashboard</h2>
+    </a>
+  </div>
+  <div class="box">
+    <a href="Ajax_type_ahead/index.html" target="_blank">
+      <h2>Cool Ajax</h2>
+    </a>
+  </div>
+  <div class="box">
+    <a href="check_multiple_checkboxes/index.html" target="_blank">
+      <h2>Check Boxes</h2>
+    </a>
+  </div>
+  <div class="box">
+    <a href="cloud_raining/index.html" target="_blank">
+      <h2>It's Raining</h2>
+    </a>
+  </div>
+  <div class="box">
+    <a href="flex_panel/index.html" target="_blank">
+      <h2>Flex Panel</h2>
+    </a>
+  </div>
+  <div class="box">
+    <a href="Fun_with_HTML5_canvas/index.html" target="_blank">
+      <h2>Draw Something</h2>
+    </a>
+  </div>
+  <div class="box">
+    <a href="html_video_player/index.html" target="_blank">
+      <h2>Watch a Video!</h2>
+    </a>
+  </div>
+  <div class="box">
+    <a href="js_clock/index.html" target="_blank">
+      <h2>See the Time!!</h2>
+    </a>
+  </div>
+  <div class="box">
+    <a href="modifying_css_variables/index.html" target="_blank">
+      <h2>Modify a Picture</h2>
+    </a>
+  </div>
+  <script>
+    const boxes = document.querySelectorAll(".box");
+    const checkBoxes = () => {
+      const triggerButton = (window.innerHeight / 5) * 4;
+      boxes.forEach((box) => {
+        const boxTop = box.getBoundingClientRect().top;
+        if (boxTop < triggerButton) box.classList.add("show");
+        else box.classList.remove("show");
+      });
+    };
+    window.addEventListener("scroll", checkBoxes);
+    checkBoxes();
+  </script>
+</body>
+</html>
