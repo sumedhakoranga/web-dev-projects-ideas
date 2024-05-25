@@ -1,0 +1,253 @@
+body {
+  background-color: #90ea74
+}
+
+.arrow-container {
+  position: absolute;
+  left: 0px;
+  height: 80px;
+  top: 0px
+}
+
+.button-container {
+  height: 100px
+}
+
+.white-arrow-container {
+  height: 66px;
+  width: 75px;
+  position: absolute;
+  left: 0px;
+  top: 0px
+}
+
+.white-tick {
+  display: none
+}
+
+.white-tick-ani {
+  animation: whiteTick 2.8s;
+  display: block
+}
+
+@keyframes whiteTick {
+  0% {
+    stroke: none
+  }
+
+  99% {
+    stroke: none
+  }
+
+  100% {
+    display: white
+  }
+}
+
+.circle {
+  stroke-dasharray: 270px;
+  stroke-dashoffset: 270px
+}
+
+.complete-circle-fill {
+  animation: fillCircle 2.8s;
+  fill: #4eab2f
+}
+
+@keyframes fillCircle {
+  0% {
+    fill: white
+  }
+
+  95% {
+    fill: white
+  }
+
+  100% {
+    fill: #4eab2f
+  }
+}
+
+.complete-circle {
+  animation: dash 3s linear forwards
+}
+
+@keyframes dash {
+  to {
+    stroke-dashoffset: 0px
+  }
+}
+
+.wrapper {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  margin-top: -50px;
+  margin-left: -50px
+}
+
+.matrix-white {
+  transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -350.73311);
+  stroke: white
+}
+
+.send-white-arrow {
+  animation-timing-function: linear;
+  animation-name: whiteArrowDown;
+  animation-delay: 0.15s;
+  animation-duration: 3s;
+  transform: matrix(3.09911, 0, 0.8, 3.09911, 280.82006, -1.73311)
+}
+
+@keyframes whiteArrowDown {
+  2% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -350.73311)
+  }
+
+  14% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -304.73311)
+  }
+
+  17% {
+    transform: matrix(3.09911, 0, 0.8, 3.09911, 280.82006, -350.73311)
+  }
+
+  18% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -350.73311)
+  }
+
+  30% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -304.73311)
+  }
+
+  37% {
+    transform: matrix(3.09911, 0, 0.8, 3.09911, 280.82006, -350.73311)
+  }
+
+  38% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -350.73311)
+  }
+
+  50% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -304.73311)
+  }
+
+  57% {
+    transform: matrix(3.09911, 0, 0.8, 3.09911, 280.82006, -350.73311)
+  }
+
+  58% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -350.73311)
+  }
+
+  70% {
+    fill: black;
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -304.73311)
+  }
+
+  77% {
+    fill: none;
+    transform: matrix(3.09911, 0, 0.8, 3.09911, 280.82006, -350.73311)
+  }
+
+  78% {
+    fill: none;
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -350.73311)
+  }
+
+  90% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -304.73311)
+  }
+
+  100% {
+    transform: matrix(3.09911, 0, 0.8, 3.09911, 280.82006, -1.73311)
+  }
+}
+
+.matrix {
+  transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -304.73311)
+}
+
+.send-black-arrow {
+  transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -3.73311);
+  animation-name: arrowDown;
+  animation-duration: 2s
+}
+
+@keyframes arrowDown {
+  0% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -304.73311)
+  }
+
+  10% {
+    transform: matrix(3.09911, 0, 0, 3.09911, 280.82006, -304.73311)
+  }
+}
+
+.cloud {
+  -moz-transform-origin: 51px 35px;
+  -ms-transform-origin: 51px 35px;
+  -o-transform-origin: 51px 35px;
+  -webkit-transform-origin: 51px 35px;
+  transform-origin: 51px 35px;
+  transform: scale(2.7);
+  -ms-transform: scale(2.7);
+  -webkit-transform: scale(2.7)
+}
+
+.animate-cloud {
+  -webkit-animation-name: scale;
+  -webkit-animation-duration: 0.5s;
+  animation-name: scale;
+  animation-duration: 0.5s
+}
+
+@-webkit-keyframes scale {
+  25% {
+    -moz-transform-origin: 25px 25px;
+    -ms-transform-origin: 25px 25px;
+    -o-transform-origin: 25px 25px;
+    -webkit-transform-origin: 25px 25px;
+    transform-origin: 51px 32px;
+    transform: scale(2);
+    -ms-transform: scale(1.8);
+    -webkit-transform: scale(1.8)
+  }
+
+  75% {
+    -moz-transform-origin: 25px 25px;
+    -ms-transform-origin: 25px 25px;
+    -o-transform-origin: 25px 25px;
+    -webkit-transform-origin: 25px 25px;
+    transform-origin: 51px 35px;
+    transform: scale(2.7);
+    -ms-transform: scale(2.7);
+    -webkit-transform: scale(2.7)
+  }
+}
+
+.reset {
+  display: none;
+  margin-top: 20px
+}
+
+.reset-live {
+  display: block
+}
+
+.credit {
+  font-family: sans-serif;
+  font-size: 14px;
+  position: absolute;
+  bottom: 1%;
+  text-decoration: none;
+  color: white
+}
+
+.credit a {
+  font-family: sans-serif;
+  font-weight: 500;
+  font-size: 14px;
+  color: white;
+  text-decoration: none
+}
