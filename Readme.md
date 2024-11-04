@@ -39,4 +39,7 @@ This repository showcases a collection of HTML, CSS, and JavaScript projects. Ea
 - Explore each project to see the code in action.
 - Feel free to fork the repository and experiment with the projects.
 
-Thank you for visiting!
+## Contributing
+Have ideas to improve these projects or add your own? Open a pull request (PR) to contribute! I'd love to see what you can build.
+
+Thank you!
